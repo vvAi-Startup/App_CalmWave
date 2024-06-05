@@ -205,7 +205,7 @@ public class Usuarios {
         ResultSet tabela;
         tabela = null;
         
-        String sql = "Select nome_musica, artista, duracao, ano, playlist from musicas where playlist ="+id_playlist+" ;)";
+        String sql = "Select nome_musica, artista, duracao, ano, playlist from musicas where playlist ="+id_playlist+" ;";
         tabela= conexaoDB.RetornarResultset(sql);
         return tabela;
     }
