@@ -5,6 +5,9 @@
  */
 package Views;
 
+import Controllers.Playlists;
+import Models.Conexao;
+
 /**
  *
  * @author fatec-dsm2
@@ -17,6 +20,19 @@ public class FMEditarPlaylist extends javax.swing.JFrame {
     public FMEditarPlaylist() {
         initComponents();
     }
+    
+    Conexao conexaoDB = new Conexao();
+    Playlists play = new Playlists();
+    
+    private int idPlaylist;
+    // Método para definir o ID da playlist
+    public void setIdPlaylist(int idPlaylist) {
+        this.idPlaylist = idPlaylist;
+    }
+    public int getIdPlaylist() {
+        return idPlaylist;
+    }
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -32,7 +48,7 @@ public class FMEditarPlaylist extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         btn_atualizar = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
-        txt_criarplaylist = new javax.swing.JTextField();
+        txt_editarplaylist = new javax.swing.JTextField();
         btn_criar1 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
 
@@ -61,12 +77,17 @@ public class FMEditarPlaylist extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(250, 250, 250));
 
         btn_atualizar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imgs/playlists/btn_atualizar.png"))); // NOI18N
+        btn_atualizar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btn_atualizarMouseClicked(evt);
+            }
+        });
 
         jPanel2.setBackground(new java.awt.Color(250, 250, 250));
 
-        txt_criarplaylist.setBackground(new java.awt.Color(12, 69, 72));
-        txt_criarplaylist.setFont(new java.awt.Font("Dialog", 2, 36)); // NOI18N
-        txt_criarplaylist.setForeground(new java.awt.Color(250, 250, 250));
+        txt_editarplaylist.setBackground(new java.awt.Color(12, 69, 72));
+        txt_editarplaylist.setFont(new java.awt.Font("Dialog", 2, 36)); // NOI18N
+        txt_editarplaylist.setForeground(new java.awt.Color(250, 250, 250));
 
         btn_criar1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imgs/playlists/btn_criar.png"))); // NOI18N
 
@@ -81,7 +102,7 @@ public class FMEditarPlaylist extends javax.swing.JFrame {
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(63, 63, 63)
-                .addComponent(txt_criarplaylist, javax.swing.GroupLayout.PREFERRED_SIZE, 378, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txt_editarplaylist, javax.swing.GroupLayout.PREFERRED_SIZE, 378, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(59, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
@@ -99,7 +120,7 @@ public class FMEditarPlaylist extends javax.swing.JFrame {
                 .addGap(80, 80, 80)
                 .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txt_criarplaylist, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txt_editarplaylist, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 84, Short.MAX_VALUE)
                 .addComponent(btn_criar1)
                 .addGap(36, 36, 36))
@@ -170,6 +191,14 @@ public class FMEditarPlaylist extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_btn_sairMouseClicked
 
+    private void btn_atualizarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_atualizarMouseClicked
+        // TODO add your handling code here
+        
+        play.alterardados_playlist(txt_editarplaylist.getText(), idPlaylist);
+        
+        this.dispose();
+    }//GEN-LAST:event_btn_atualizarMouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -213,6 +242,6 @@ public class FMEditarPlaylist extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JTextField txt_criarplaylist;
+    public javax.swing.JTextField txt_editarplaylist;
     // End of variables declaration//GEN-END:variables
 }

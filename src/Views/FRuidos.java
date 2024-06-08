@@ -44,7 +44,7 @@ public class FRuidos extends javax.swing.JFrame {
         jSlider2 = new javax.swing.JSlider();
         Branco = new javax.swing.JPanel();
         Branco2 = new javax.swing.JPanel();
-        Ruido_Preto = new javax.swing.JPanel();
+        Ruido_Marrom = new javax.swing.JPanel();
         Rui1 = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
@@ -252,7 +252,7 @@ public class FRuidos extends javax.swing.JFrame {
                     .addGap(0, 342, Short.MAX_VALUE)))
         );
 
-        Ruido_Preto.setBackground(new java.awt.Color(15, 15, 15));
+        Ruido_Marrom.setBackground(new java.awt.Color(15, 15, 15));
 
         Rui1.setBackground(new java.awt.Color(87, 72, 64));
 
@@ -362,7 +362,7 @@ public class FRuidos extends javax.swing.JFrame {
         );
         Branco1Layout.setVerticalGroup(
             Branco1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 367, Short.MAX_VALUE)
+            .addGap(0, 355, Short.MAX_VALUE)
         );
 
         Branco3.setBackground(new java.awt.Color(250, 250, 250));
@@ -378,33 +378,34 @@ public class FRuidos extends javax.swing.JFrame {
             .addGap(0, 25, Short.MAX_VALUE)
         );
 
-        javax.swing.GroupLayout Ruido_PretoLayout = new javax.swing.GroupLayout(Ruido_Preto);
-        Ruido_Preto.setLayout(Ruido_PretoLayout);
-        Ruido_PretoLayout.setHorizontalGroup(
-            Ruido_PretoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Ruido_PretoLayout.createSequentialGroup()
-                .addGap(0, 17, Short.MAX_VALUE)
-                .addComponent(Rui1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(Ruido_PretoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Ruido_PretoLayout.createSequentialGroup()
+        javax.swing.GroupLayout Ruido_MarromLayout = new javax.swing.GroupLayout(Ruido_Marrom);
+        Ruido_Marrom.setLayout(Ruido_MarromLayout);
+        Ruido_MarromLayout.setHorizontalGroup(
+            Ruido_MarromLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Ruido_MarromLayout.createSequentialGroup()
+                .addContainerGap(17, Short.MAX_VALUE)
+                .addComponent(Rui1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+            .addGroup(Ruido_MarromLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Ruido_MarromLayout.createSequentialGroup()
                     .addGap(0, 275, Short.MAX_VALUE)
                     .addComponent(Branco1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-            .addGroup(Ruido_PretoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(Ruido_PretoLayout.createSequentialGroup()
+            .addGroup(Ruido_MarromLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(Ruido_MarromLayout.createSequentialGroup()
                     .addComponent(Branco3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGap(0, 124, Short.MAX_VALUE)))
         );
-        Ruido_PretoLayout.setVerticalGroup(
-            Ruido_PretoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(Ruido_PretoLayout.createSequentialGroup()
+        Ruido_MarromLayout.setVerticalGroup(
+            Ruido_MarromLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(Ruido_MarromLayout.createSequentialGroup()
                 .addComponent(Rui1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 33, Short.MAX_VALUE))
-            .addGroup(Ruido_PretoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGap(0, 21, Short.MAX_VALUE))
+            .addGroup(Ruido_MarromLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addComponent(Branco1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(Ruido_PretoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(Ruido_PretoLayout.createSequentialGroup()
+            .addGroup(Ruido_MarromLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(Ruido_MarromLayout.createSequentialGroup()
                     .addComponent(Branco3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 342, Short.MAX_VALUE)))
+                    .addGap(0, 330, Short.MAX_VALUE)))
         );
 
         Ruido_Rosa.setBackground(new java.awt.Color(15, 15, 15));
@@ -576,7 +577,7 @@ public class FRuidos extends javax.swing.JFrame {
                 .addGap(27, 27, 27)
                 .addComponent(Ruido_Branco, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(28, 28, 28)
-                .addComponent(Ruido_Preto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(Ruido_Marrom, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(26, 26, 26)
                 .addComponent(Ruido_Rosa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(414, Short.MAX_VALUE))
@@ -590,11 +591,15 @@ public class FRuidos extends javax.swing.JFrame {
             .addGroup(FundoLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel19)
-                .addGap(65, 65, 65)
                 .addGroup(FundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(Ruido_Rosa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Ruido_Preto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Ruido_Branco, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(FundoLayout.createSequentialGroup()
+                        .addGap(65, 65, 65)
+                        .addGroup(FundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(Ruido_Rosa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(Ruido_Branco, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(FundoLayout.createSequentialGroup()
+                        .addGap(77, 77, 77)
+                        .addComponent(Ruido_Marrom, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(153, Short.MAX_VALUE))
         );
 
@@ -609,7 +614,7 @@ public class FRuidos extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                    .addContainerGap(961, Short.MAX_VALUE)
+                    .addContainerGap(967, Short.MAX_VALUE)
                     .addComponent(btn_sair, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGap(394, 394, 394)))
         );
@@ -689,7 +694,7 @@ public class FRuidos extends javax.swing.JFrame {
     private javax.swing.JPanel Rui1;
     private javax.swing.JPanel Rui2;
     private javax.swing.JPanel Ruido_Branco;
-    private javax.swing.JPanel Ruido_Preto;
+    private javax.swing.JPanel Ruido_Marrom;
     private javax.swing.JPanel Ruido_Rosa;
     private javax.swing.JPanel btn_sair;
     private javax.swing.JLabel img_fundo;

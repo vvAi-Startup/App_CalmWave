@@ -5,6 +5,7 @@
  */
 package Views;
 
+import Controllers.Playlists;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
@@ -25,7 +26,8 @@ public class FPlaylist extends javax.swing.JFrame {
         refreshar();
     }
     
-    Usuarios usu = new Usuarios();
+    Playlists play = new Playlists();
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -48,7 +50,6 @@ public class FPlaylist extends javax.swing.JFrame {
         btn_visualizar = new javax.swing.JLabel();
         btn_criarplaylist = new javax.swing.JLabel();
         btn_refresh = new javax.swing.JButton();
-        lbl_teste = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -145,8 +146,6 @@ public class FPlaylist extends javax.swing.JFrame {
             }
         });
 
-        lbl_teste.setText("jLabel1");
-
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -173,10 +172,6 @@ public class FPlaylist extends javax.swing.JFrame {
                                 .addComponent(btn_refresh, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 649, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(546, 546, 546)
-                .addComponent(lbl_teste)
-                .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel2Layout.createSequentialGroup()
                     .addGap(28, 28, 28)
@@ -188,9 +183,7 @@ public class FPlaylist extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(btn_voltar)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(lbl_teste)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 41, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 63, Short.MAX_VALUE)
                 .addComponent(btn_visualizar)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btn_refresh, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -263,24 +256,62 @@ public class FPlaylist extends javax.swing.JFrame {
 
     private void btn_editarnomeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_editarnomeMouseClicked
         // TODO add your handling code here:
-        new FMEditarPlaylist().setVisible(true);
-    }//GEN-LAST:event_btn_editarnomeMouseClicked
-
-    private void btn_inserirmusicMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_inserirmusicMouseClicked
-        // TODO add your handling code here:
-        new FInserirMusic().setVisible(true);
-        this.dispose();
-    }//GEN-LAST:event_btn_inserirmusicMouseClicked
-
-    private void btn_visualizarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_visualizarMouseClicked
-        // TODO add your handling code here:
-        
- 
         DefaultTableModel modelo = (DefaultTableModel) tbl_playlist.getModel();
        // modelo.setNumRows(0);
 
         int linhaSelecionada = tbl_playlist.getSelectedRow();
-           lbl_teste.setText("oi" + linhaSelecionada);
+        if (linhaSelecionada == -1) {
+            JOptionPane.showMessageDialog(null, "Selecione uma Playlist para Editar.");
+            refreshar();
+            return;
+        } else {
+        // Obtendo o ID da playlist selecionada a partir da tabela
+        int idPlaylist = Integer.parseInt(modelo.getValueAt(linhaSelecionada, 0).toString());
+        
+        
+      FMEditarPlaylist FEdit = new FMEditarPlaylist();
+    
+     //    Passando o ID da playlist para a próxima janela
+        FEdit.setIdPlaylist(idPlaylist);
+        
+        FEdit.txt_editarplaylist.setText(modelo.getValueAt(linhaSelecionada, 1).toString());
+        
+        FEdit.setVisible(true);
+        }
+    }//GEN-LAST:event_btn_editarnomeMouseClicked
+
+    private void btn_inserirmusicMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_inserirmusicMouseClicked
+        // TODO add your handling code here:
+
+        DefaultTableModel modelo = (DefaultTableModel) tbl_playlist.getModel();
+       // modelo.setNumRows(0);
+
+        int linhaSelecionada = tbl_playlist.getSelectedRow();
+        if (linhaSelecionada == -1) {
+            JOptionPane.showMessageDialog(null, "Selecione uma Playlist para Inserir Músicas.");
+            refreshar();
+            return;
+        } else {
+        // Obtendo o ID da playlist selecionada a partir da tabela
+        int idPlaylist = Integer.parseInt(modelo.getValueAt(linhaSelecionada, 0).toString());
+        
+        FInserirMusic Finsert = new FInserirMusic();
+    
+        //Passando o ID da playlist para a próxima janela
+        Finsert.setIdPlaylist(idPlaylist);
+        Finsert.lbl_playlist.setText(modelo.getValueAt(linhaSelecionada, 1).toString());
+        
+        Finsert.setVisible(true);
+        this.dispose();
+        }
+    }//GEN-LAST:event_btn_inserirmusicMouseClicked
+
+    private void btn_visualizarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_visualizarMouseClicked
+        // TODO add your handling code here:
+        DefaultTableModel modelo = (DefaultTableModel) tbl_playlist.getModel();
+       // modelo.setNumRows(0);
+
+        int linhaSelecionada = tbl_playlist.getSelectedRow();
         if (linhaSelecionada == -1) {
             JOptionPane.showMessageDialog(null, "Selecione uma Playlist para visualizar.");
             refreshar();
@@ -288,9 +319,6 @@ public class FPlaylist extends javax.swing.JFrame {
         } else {
         // Obtendo o ID da playlist selecionada a partir da tabela
         int idPlaylist = Integer.parseInt(modelo.getValueAt(linhaSelecionada, 0).toString());
-        String teste;
-        teste= "" + idPlaylist;
-        lbl_teste.setText("oi" + teste);
         
         
       FVisualizarMusicas FVisu = new FVisualizarMusicas();
@@ -302,10 +330,6 @@ public class FPlaylist extends javax.swing.JFrame {
         FVisu.setVisible(true);
         this.dispose();
         }
-        
-        
-        
-        
     }//GEN-LAST:event_btn_visualizarMouseClicked
 
     private void btn_refreshActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_refreshActionPerformed
@@ -323,7 +347,7 @@ public class FPlaylist extends javax.swing.JFrame {
         ResultSet tabela;
         tabela = null;
         
-        tabela = usu.listarplaylist();
+        tabela = play.listarplaylist();
         DefaultTableModel modelo = (DefaultTableModel) tbl_playlist.getModel();
         modelo.setNumRows(0);
         
@@ -384,7 +408,6 @@ public class FPlaylist extends javax.swing.JFrame {
     private javax.swing.JLabel img_fundo;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JLabel lbl_teste;
     private javax.swing.JTable tbl_playlist;
     // End of variables declaration//GEN-END:variables
 }

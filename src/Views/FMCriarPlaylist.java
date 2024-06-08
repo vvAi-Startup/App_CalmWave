@@ -5,6 +5,8 @@
  */
 package Views;
 
+import Controllers.Playlists;
+
 /**
  *
  * @author fatec-dsm2
@@ -17,7 +19,9 @@ public class FMCriarPlaylist extends javax.swing.JFrame {
     public FMCriarPlaylist() {
         initComponents();
     }
-
+    
+    Playlists play = new Playlists();
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -64,6 +68,11 @@ public class FMCriarPlaylist extends javax.swing.JFrame {
         txt_criarplaylist.setForeground(new java.awt.Color(250, 250, 250));
 
         btn_criar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imgs/playlists/btn_criar.png"))); // NOI18N
+        btn_criar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btn_criarMouseClicked(evt);
+            }
+        });
 
         jLabel3.setFont(new java.awt.Font("Dialog", 0, 36)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(21, 21, 21));
@@ -135,6 +144,13 @@ public class FMCriarPlaylist extends javax.swing.JFrame {
         // TODO add your handling code here:
         this.dispose();
     }//GEN-LAST:event_btn_sairMouseClicked
+
+    private void btn_criarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_criarMouseClicked
+        // TODO add your handling code here:
+        
+        play.cadastrar_playlist(txt_criarplaylist.getText());
+        this.dispose();
+    }//GEN-LAST:event_btn_criarMouseClicked
 
     /**
      * @param args the command line arguments

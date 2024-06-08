@@ -5,6 +5,8 @@
  */
 package Views;
 
+import Controllers.Usuarios;
+
 /**
  *
  * @author fatec-dsm2
@@ -17,6 +19,8 @@ public class FCreateUser extends javax.swing.JFrame {
     public FCreateUser() {
         initComponents();
     }
+    
+    Usuarios usu = new Usuarios();
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -30,17 +34,17 @@ public class FCreateUser extends javax.swing.JFrame {
         Imagem_Fundo = new javax.swing.JPanel();
         Conteudo = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
-        txt_email = new javax.swing.JTextField();
+        txt_nomeuser = new javax.swing.JTextField();
         txt_senha = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         btn_voltar = new javax.swing.JLabel();
         btn_alterar = new javax.swing.JLabel();
         btn_registrar = new javax.swing.JLabel();
-        txt_senha1 = new javax.swing.JTextField();
+        txt_nome = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
-        txt_senha3 = new javax.swing.JTextField();
+        txt_email = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
-        txt_senha4 = new javax.swing.JTextField();
+        txt_telefone = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         img_fundo = new javax.swing.JLabel();
@@ -54,13 +58,13 @@ public class FCreateUser extends javax.swing.JFrame {
         jLabel3.setForeground(new java.awt.Color(21, 21, 21));
         jLabel3.setText("Nome de Usuário:");
 
-        txt_email.setBackground(new java.awt.Color(12, 69, 72));
-        txt_email.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
-        txt_email.setForeground(new java.awt.Color(255, 255, 255));
-        txt_email.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
-        txt_email.addActionListener(new java.awt.event.ActionListener() {
+        txt_nomeuser.setBackground(new java.awt.Color(12, 69, 72));
+        txt_nomeuser.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        txt_nomeuser.setForeground(new java.awt.Color(255, 255, 255));
+        txt_nomeuser.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        txt_nomeuser.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txt_emailActionPerformed(evt);
+                txt_nomeuserActionPerformed(evt);
             }
         });
 
@@ -99,13 +103,13 @@ public class FCreateUser extends javax.swing.JFrame {
             }
         });
 
-        txt_senha1.setBackground(new java.awt.Color(12, 69, 72));
-        txt_senha1.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
-        txt_senha1.setForeground(new java.awt.Color(255, 255, 255));
-        txt_senha1.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
-        txt_senha1.addActionListener(new java.awt.event.ActionListener() {
+        txt_nome.setBackground(new java.awt.Color(12, 69, 72));
+        txt_nome.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        txt_nome.setForeground(new java.awt.Color(255, 255, 255));
+        txt_nome.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        txt_nome.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txt_senha1ActionPerformed(evt);
+                txt_nomeActionPerformed(evt);
             }
         });
 
@@ -113,13 +117,13 @@ public class FCreateUser extends javax.swing.JFrame {
         jLabel5.setForeground(new java.awt.Color(21, 21, 21));
         jLabel5.setText("Nome Completo:");
 
-        txt_senha3.setBackground(new java.awt.Color(12, 69, 72));
-        txt_senha3.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
-        txt_senha3.setForeground(new java.awt.Color(255, 255, 255));
-        txt_senha3.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
-        txt_senha3.addActionListener(new java.awt.event.ActionListener() {
+        txt_email.setBackground(new java.awt.Color(12, 69, 72));
+        txt_email.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        txt_email.setForeground(new java.awt.Color(255, 255, 255));
+        txt_email.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        txt_email.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txt_senha3ActionPerformed(evt);
+                txt_emailActionPerformed(evt);
             }
         });
 
@@ -127,13 +131,13 @@ public class FCreateUser extends javax.swing.JFrame {
         jLabel7.setForeground(new java.awt.Color(21, 21, 21));
         jLabel7.setText("E-mail:");
 
-        txt_senha4.setBackground(new java.awt.Color(12, 69, 72));
-        txt_senha4.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
-        txt_senha4.setForeground(new java.awt.Color(255, 255, 255));
-        txt_senha4.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
-        txt_senha4.addActionListener(new java.awt.event.ActionListener() {
+        txt_telefone.setBackground(new java.awt.Color(12, 69, 72));
+        txt_telefone.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        txt_telefone.setForeground(new java.awt.Color(255, 255, 255));
+        txt_telefone.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        txt_telefone.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txt_senha4ActionPerformed(evt);
+                txt_telefoneActionPerformed(evt);
             }
         });
 
@@ -154,7 +158,7 @@ public class FCreateUser extends javax.swing.JFrame {
                 .addGroup(ConteudoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(ConteudoLayout.createSequentialGroup()
                         .addGroup(ConteudoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(txt_senha3, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txt_email, javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel7, javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.LEADING)
@@ -164,10 +168,10 @@ public class FCreateUser extends javax.swing.JFrame {
                                 .addComponent(btn_registrar)
                                 .addGap(39, 39, 39)
                                 .addComponent(btn_alterar))
-                            .addComponent(txt_senha4, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txt_senha1)
+                            .addComponent(txt_telefone, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txt_nome)
                             .addComponent(txt_senha, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txt_email, javax.swing.GroupLayout.Alignment.LEADING))
+                            .addComponent(txt_nomeuser, javax.swing.GroupLayout.Alignment.LEADING))
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(ConteudoLayout.createSequentialGroup()
                         .addGap(50, 50, 50)
@@ -189,7 +193,7 @@ public class FCreateUser extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txt_email, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txt_nomeuser, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel4)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -197,15 +201,15 @@ public class FCreateUser extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel5)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txt_senha1, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txt_nome, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel7)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txt_senha3, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txt_email, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel8)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txt_senha4, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txt_telefone, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(27, 27, 27)
                 .addGroup(ConteudoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(btn_alterar)
@@ -246,9 +250,9 @@ public class FCreateUser extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void txt_emailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_emailActionPerformed
+    private void txt_nomeuserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_nomeuserActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txt_emailActionPerformed
+    }//GEN-LAST:event_txt_nomeuserActionPerformed
 
     private void txt_senhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_senhaActionPerformed
         // TODO add your handling code here:
@@ -268,19 +272,25 @@ public class FCreateUser extends javax.swing.JFrame {
 
     private void btn_registrarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_registrarMouseClicked
         // TODO add your handling code here:
+        
+        usu.cadastrar_user(txt_nomeuser.getText(), txt_nome.getText(), Integer.parseInt(txt_telefone.getText()), txt_email.getText(), txt_senha.getText());
+        txt_nomeuser.setText("");
+        txt_telefone.setText("");
+        txt_email.setText("");
+        txt_senha.setText("");
     }//GEN-LAST:event_btn_registrarMouseClicked
 
-    private void txt_senha1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_senha1ActionPerformed
+    private void txt_nomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_nomeActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txt_senha1ActionPerformed
+    }//GEN-LAST:event_txt_nomeActionPerformed
 
-    private void txt_senha3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_senha3ActionPerformed
+    private void txt_emailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_emailActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txt_senha3ActionPerformed
+    }//GEN-LAST:event_txt_emailActionPerformed
 
-    private void txt_senha4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_senha4ActionPerformed
+    private void txt_telefoneActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_telefoneActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txt_senha4ActionPerformed
+    }//GEN-LAST:event_txt_telefoneActionPerformed
 
     /**
      * @param args the command line arguments
@@ -331,9 +341,9 @@ public class FCreateUser extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JTextField txt_email;
+    private javax.swing.JTextField txt_nome;
+    private javax.swing.JTextField txt_nomeuser;
     private javax.swing.JTextField txt_senha;
-    private javax.swing.JTextField txt_senha1;
-    private javax.swing.JTextField txt_senha3;
-    private javax.swing.JTextField txt_senha4;
+    private javax.swing.JTextField txt_telefone;
     // End of variables declaration//GEN-END:variables
 }

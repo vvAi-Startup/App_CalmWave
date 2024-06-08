@@ -8,6 +8,7 @@ package Views;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import Controllers.Usuarios;
+import Models.Conexao;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 /**
@@ -21,10 +22,11 @@ public class FVisualizarMusicas extends javax.swing.JFrame {
      */
     public FVisualizarMusicas() {
         initComponents();
-        
-       tabelainiciar();
+        refreshar();
         
     }
+    
+    Conexao conexaoDB = new Conexao();
     
     private int idPlaylist;
     // Método para definir o ID da playlist
@@ -38,11 +40,11 @@ public class FVisualizarMusicas extends javax.swing.JFrame {
     Usuarios usu = new Usuarios();
     
     
-    public void tabelainiciar(){
+    public void refreshar(){
         ResultSet tabela;
         tabela = null;
         
-        tabela = usu.listarMusicas(getIdPlaylist());
+        tabela = listarmusicas();
         DefaultTableModel modelo = (DefaultTableModel) tbl_musicas.getModel();
         modelo.setNumRows(0);
         
@@ -52,8 +54,18 @@ public class FVisualizarMusicas extends javax.swing.JFrame {
             }while(tabela.next());
         }catch(SQLException erro){
             JOptionPane.showMessageDialog(null, "Erro ao preencher tabela "+erro);
-        }  
+        } 
     }
+    
+    public ResultSet listarmusicas(){
+        ResultSet tabela;
+        tabela = null;
+        
+        String sql = "Select id_musica, nome_musica, artista, duracao, ano from musicas where playlist = "+getIdPlaylist()+";";
+        tabela= conexaoDB.RetornarResultset(sql);
+        return tabela;
+    }
+    
     
     /**
      * This method is called from within the constructor to initialize the form.
@@ -72,6 +84,7 @@ public class FVisualizarMusicas extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         tbl_musicas = new javax.swing.JTable();
         jTextField1 = new javax.swing.JTextField();
+        btn_refresh = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -137,39 +150,54 @@ public class FVisualizarMusicas extends javax.swing.JFrame {
             }
         });
 
+        btn_refresh.setText("Refresh");
+        btn_refresh.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_refreshActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(lbl_nomePlaylist)
-                .addGap(177, 177, 177)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btn_voltar, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(65, 65, 65))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(50, 50, 50)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 896, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 132, Short.MAX_VALUE))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(btn_refresh, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addComponent(lbl_nomePlaylist)
+                                .addGap(176, 176, 176)))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jTextField1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btn_voltar, javax.swing.GroupLayout.Alignment.TRAILING))
+                        .addGap(65, 65, 65))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 896, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 132, Short.MAX_VALUE))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
                         .addComponent(btn_voltar)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 37, Short.MAX_VALUE)
+                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(lbl_nomePlaylist)
-                        .addGap(29, 29, 29)))
+                        .addGap(4, 4, 4)
+                        .addComponent(btn_refresh, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 495, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(9, Short.MAX_VALUE))
+                .addContainerGap(13, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -224,6 +252,12 @@ public class FVisualizarMusicas extends javax.swing.JFrame {
         
     }//GEN-LAST:event_tbl_musicasMouseClicked
 
+    private void btn_refreshActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_refreshActionPerformed
+        // TODO add your handling code here:
+        refreshar();
+
+    }//GEN-LAST:event_btn_refreshActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -260,6 +294,7 @@ public class FVisualizarMusicas extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btn_refresh;
     private javax.swing.JPanel btn_sair;
     private javax.swing.JLabel btn_voltar;
     private javax.swing.JLabel img_fundo;

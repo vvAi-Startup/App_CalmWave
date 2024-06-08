@@ -172,7 +172,7 @@ public class FLogin extends javax.swing.JFrame {
             // Criar uma instância da view index
             FMenu menu = new FMenu();
             menu.setVisible(true);
-            menu.lbl_nome.setText(usu.getNome_completo());
+            menu.lbl_nome.setText(usu.getNome_usuario());
             this.dispose();
             
         } else {

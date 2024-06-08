@@ -191,23 +191,5 @@ public class Usuarios {
             conexaoDB.desconecta();
         }
     }
-    
-    public ResultSet listarplaylist(){
-        ResultSet tabela;
-        tabela = null;
-        
-        String sql = "Select id_playlist, nome_playlist, qtd_musicas, tempo_duracao, criacao_playlist from playlists;";
-        tabela= conexaoDB.RetornarResultset(sql);
-        return tabela;
-    }
-    
-    public ResultSet listarMusicas(int id_playlist){
-        ResultSet tabela;
-        tabela = null;
-        
-        String sql = "Select nome_musica, artista, duracao, ano, playlist from musicas where playlist ="+id_playlist+" ;";
-        tabela= conexaoDB.RetornarResultset(sql);
-        return tabela;
-    }
 
 }
