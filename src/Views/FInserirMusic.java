@@ -23,6 +23,8 @@ public class FInserirMusic extends javax.swing.JFrame {
         initComponents();
     }
     
+    public String user;
+    
     Conexao conexaoDB = new Conexao();
     Playlists play = new Playlists();
     
@@ -307,7 +309,7 @@ public class FInserirMusic extends javax.swing.JFrame {
      //    Passando o ID da playlist para a próxima janela
         FVisu.setIdPlaylist(idPlaylist);
         FVisu.lbl_nomePlaylist.setText(lbl_playlist.getText());
-    
+        FVisu.user = user;
         FVisu.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btn_visualizarMouseClicked
@@ -318,7 +320,9 @@ public class FInserirMusic extends javax.swing.JFrame {
 
     private void btn_voltarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_voltarMouseClicked
         // TODO add your handling code here:
-        new FPlaylist().setVisible(true);
+        FPlaylist play = new FPlaylist();
+        play.user = user;
+        play.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btn_voltarMouseClicked
 

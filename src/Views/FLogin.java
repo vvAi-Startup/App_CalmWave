@@ -25,7 +25,6 @@ public class FLogin extends javax.swing.JFrame {
     }
     Usuarios usu = new Usuarios();
     Conexao conexaoDB = new Conexao();
-
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -171,9 +170,11 @@ public class FLogin extends javax.swing.JFrame {
 
             // Criar uma instância da view index
             FMenu menu = new FMenu();
-            menu.setVisible(true);
             menu.lbl_nome.setText(usu.getNome_usuario());
+            menu.setVisible(true);
             this.dispose();
+            
+            
             
         } else {
             // Se o login for inválido, exiba uma mensagem de erro

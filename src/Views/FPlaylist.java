@@ -26,6 +26,8 @@ public class FPlaylist extends javax.swing.JFrame {
         refreshar();
     }
     
+    public String user;
+    
     Playlists play = new Playlists();
     
 
@@ -245,7 +247,9 @@ public class FPlaylist extends javax.swing.JFrame {
 
     private void btn_voltarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_voltarMouseClicked
         // TODO add your handling code here:
-        new FMenu().setVisible(true);
+        FMenu menu = new FMenu();
+        menu.lbl_nome.setText(user);
+        menu.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btn_voltarMouseClicked
 
@@ -298,6 +302,7 @@ public class FPlaylist extends javax.swing.JFrame {
         FInserirMusic Finsert = new FInserirMusic();
     
         //Passando o ID da playlist para a próxima janela
+        Finsert.user = user;
         Finsert.setIdPlaylist(idPlaylist);
         Finsert.lbl_playlist.setText(modelo.getValueAt(linhaSelecionada, 1).toString());
         
@@ -324,6 +329,7 @@ public class FPlaylist extends javax.swing.JFrame {
       FVisualizarMusicas FVisu = new FVisualizarMusicas();
     
      //    Passando o ID da playlist para a próxima janela
+        FVisu.user = user;
         FVisu.setIdPlaylist(idPlaylist);
         FVisu.lbl_nomePlaylist.setText(modelo.getValueAt(linhaSelecionada, 1).toString());
     

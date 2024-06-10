@@ -21,6 +21,8 @@ public class FCreateUser extends javax.swing.JFrame {
     }
     
     Usuarios usu = new Usuarios();
+    
+    public String user;
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -260,13 +262,18 @@ public class FCreateUser extends javax.swing.JFrame {
 
     private void btn_voltarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_voltarMouseClicked
         // TODO add your handling code here:
-        new FMenu().setVisible(true);
-        this.setVisible(false);
+        FMenu menu = new FMenu();
+        menu.lbl_nome.setText(user);
+        menu.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_btn_voltarMouseClicked
 
     private void btn_alterarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_alterarMouseClicked
         // TODO add your handling code here:
-        new FEditUser().setVisible(true);
+        FEditUser edituser = new FEditUser();
+        
+        edituser.user = user;
+        edituser.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btn_alterarMouseClicked
 

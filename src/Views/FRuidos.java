@@ -18,6 +18,8 @@ public class FRuidos extends javax.swing.JFrame {
         initComponents();
     }
 
+    public String user;
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -72,7 +74,7 @@ public class FRuidos extends javax.swing.JFrame {
         jSlider6 = new javax.swing.JSlider();
         Branco4 = new javax.swing.JPanel();
         Branco5 = new javax.swing.JPanel();
-        jLabel19 = new javax.swing.JLabel();
+        btn_voltar = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -562,10 +564,10 @@ public class FRuidos extends javax.swing.JFrame {
                     .addGap(0, 342, Short.MAX_VALUE)))
         );
 
-        jLabel19.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imgs/cadusu/btn_voltar.png"))); // NOI18N
-        jLabel19.addMouseListener(new java.awt.event.MouseAdapter() {
+        btn_voltar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imgs/cadusu/btn_voltar.png"))); // NOI18N
+        btn_voltar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel19MouseClicked(evt);
+                btn_voltarMouseClicked(evt);
             }
         });
 
@@ -583,14 +585,14 @@ public class FRuidos extends javax.swing.JFrame {
                 .addContainerGap(414, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, FundoLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel19)
+                .addComponent(btn_voltar)
                 .addGap(387, 387, 387))
         );
         FundoLayout.setVerticalGroup(
             FundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(FundoLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel19)
+                .addComponent(btn_voltar)
                 .addGroup(FundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(FundoLayout.createSequentialGroup()
                         .addGap(65, 65, 65)
@@ -640,12 +642,14 @@ public class FRuidos extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_btn_sairMouseClicked
 
-    private void jLabel19MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel19MouseClicked
+    private void btn_voltarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_voltarMouseClicked
         // TODO add your handling code here:
-        this.dispose();
         FMenu menu = new FMenu();
+        
+        menu.lbl_nome.setText(user);
         menu.setVisible(true);
-    }//GEN-LAST:event_jLabel19MouseClicked
+        this.dispose();
+    }//GEN-LAST:event_btn_voltarMouseClicked
 
     /**
      * @param args the command line arguments
@@ -697,6 +701,7 @@ public class FRuidos extends javax.swing.JFrame {
     private javax.swing.JPanel Ruido_Marrom;
     private javax.swing.JPanel Ruido_Rosa;
     private javax.swing.JPanel btn_sair;
+    private javax.swing.JLabel btn_voltar;
     private javax.swing.JLabel img_fundo;
     private javax.swing.JCheckBox jCheckBox1;
     private javax.swing.JCheckBox jCheckBox2;
@@ -714,7 +719,6 @@ public class FRuidos extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
-    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;

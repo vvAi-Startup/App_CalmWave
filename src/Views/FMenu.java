@@ -24,12 +24,11 @@ public class FMenu extends javax.swing.JFrame {
    
     
     public FMenu() {
+      
         initComponents();
-        
     }
+    
     Conexao conexaoDB = new Conexao();
-    
-    
     
     /**
      * This method is called from within the constructor to initialize the form.
@@ -204,19 +203,30 @@ public class FMenu extends javax.swing.JFrame {
 
     private void btn_cadusuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_cadusuMouseClicked
         // TODO add your handling code here:
-        new FCreateUser().setVisible(true);
+        FCreateUser createuser = new FCreateUser();
+        
+        createuser.user = lbl_nome.getText();
+        createuser.setVisible(true);
+        
         this.setVisible(false);
     }//GEN-LAST:event_btn_cadusuMouseClicked
 
     private void btn_ruidosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_ruidosMouseClicked
         // TODO add your handling code here:
-        new FRuidos().setVisible(true);
+        FRuidos rui = new FRuidos();
+        
+        rui.user = lbl_nome.getText();
+        rui.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btn_ruidosMouseClicked
 
     private void btn_albunsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_albunsMouseClicked
         // TODO add your handling code here:
-        new FPlaylist().setVisible(true);
+        FPlaylist play = new FPlaylist();
+        
+        
+        play.user = lbl_nome.getText();
+        play.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btn_albunsMouseClicked
 

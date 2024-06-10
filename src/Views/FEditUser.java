@@ -18,6 +18,8 @@ public class FEditUser extends javax.swing.JFrame {
         initComponents();
     }
 
+    public String user;
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -245,7 +247,9 @@ public class FEditUser extends javax.swing.JFrame {
 
     private void btn_voltarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_voltarMouseClicked
         // TODO add your handling code here:
-        new FCreateUser().setVisible(true);
+        FCreateUser createuser = new FCreateUser();
+        createuser.user = user;
+        createuser.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btn_voltarMouseClicked
 

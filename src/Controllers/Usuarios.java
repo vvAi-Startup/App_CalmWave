@@ -103,6 +103,7 @@ public class Usuarios {
                 if (resultado.next()) {
                     idUsuario = resultado.getInt("id_dev");
                     setId_usuario(resultado.getInt("id_dev"));
+                    setNome_usuario(resultado.getString("nome_usuario"));
                     setNome_completo(resultado.getString("nome_completo"));
                     setTipo_dev(resultado.getInt("tipo_dev")); // Configurar o valor de tipo_dev aqui
                     setEmail(resultado.getString("email"));

@@ -26,6 +26,8 @@ public class FVisualizarMusicas extends javax.swing.JFrame {
         
     }
     
+    public String user;
+    
     Conexao conexaoDB = new Conexao();
     
     private int idPlaylist;
@@ -239,7 +241,9 @@ public class FVisualizarMusicas extends javax.swing.JFrame {
 
     private void btn_voltarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_voltarMouseClicked
         // TODO add your handling code here:
-        new FPlaylist().setVisible(true);
+        FPlaylist play = new FPlaylist();
+        play.user = user;
+        play.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btn_voltarMouseClicked
 
