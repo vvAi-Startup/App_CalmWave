@@ -23,7 +23,6 @@ public class FVisualizarMusicas extends javax.swing.JFrame {
     public FVisualizarMusicas() {
         initComponents();
         refreshar();
-        
     }
     
     public String user;
