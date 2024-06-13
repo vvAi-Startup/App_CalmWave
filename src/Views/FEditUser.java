@@ -5,6 +5,8 @@
  */
 package Views;
 
+import Controllers.Usuarios;
+
 /**
  *
  * @author fatec-dsm2
@@ -18,7 +20,10 @@ public class FEditUser extends javax.swing.JFrame {
         initComponents();
     }
 
+    Usuarios usu = new Usuarios();
+    
     public String user;
+    public int id;
     
     /**
      * This method is called from within the constructor to initialize the form.
@@ -32,16 +37,16 @@ public class FEditUser extends javax.swing.JFrame {
         Imagem_Fundo = new javax.swing.JPanel();
         Conteudo = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
-        txt_email = new javax.swing.JTextField();
+        txt_nomeuser = new javax.swing.JTextField();
         txt_senha = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         btn_voltar = new javax.swing.JLabel();
-        btn_registrar = new javax.swing.JLabel();
-        txt_senha1 = new javax.swing.JTextField();
+        btn_atualizar = new javax.swing.JLabel();
+        txt_nome = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
-        txt_senha3 = new javax.swing.JTextField();
+        txt_email = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
-        txt_senha4 = new javax.swing.JTextField();
+        txt_telefone = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         img_fundo = new javax.swing.JLabel();
@@ -56,13 +61,13 @@ public class FEditUser extends javax.swing.JFrame {
         jLabel3.setForeground(new java.awt.Color(21, 21, 21));
         jLabel3.setText("Nome de Usuário:");
 
-        txt_email.setBackground(new java.awt.Color(12, 69, 72));
-        txt_email.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
-        txt_email.setForeground(new java.awt.Color(255, 255, 255));
-        txt_email.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
-        txt_email.addActionListener(new java.awt.event.ActionListener() {
+        txt_nomeuser.setBackground(new java.awt.Color(12, 69, 72));
+        txt_nomeuser.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        txt_nomeuser.setForeground(new java.awt.Color(255, 255, 255));
+        txt_nomeuser.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        txt_nomeuser.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txt_emailActionPerformed(evt);
+                txt_nomeuserActionPerformed(evt);
             }
         });
 
@@ -87,20 +92,20 @@ public class FEditUser extends javax.swing.JFrame {
             }
         });
 
-        btn_registrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imgs/playlists/btn_atualizar.png"))); // NOI18N
-        btn_registrar.addMouseListener(new java.awt.event.MouseAdapter() {
+        btn_atualizar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imgs/playlists/btn_atualizar.png"))); // NOI18N
+        btn_atualizar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btn_registrarMouseClicked(evt);
+                btn_atualizarMouseClicked(evt);
             }
         });
 
-        txt_senha1.setBackground(new java.awt.Color(12, 69, 72));
-        txt_senha1.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
-        txt_senha1.setForeground(new java.awt.Color(255, 255, 255));
-        txt_senha1.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
-        txt_senha1.addActionListener(new java.awt.event.ActionListener() {
+        txt_nome.setBackground(new java.awt.Color(12, 69, 72));
+        txt_nome.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        txt_nome.setForeground(new java.awt.Color(255, 255, 255));
+        txt_nome.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        txt_nome.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txt_senha1ActionPerformed(evt);
+                txt_nomeActionPerformed(evt);
             }
         });
 
@@ -108,13 +113,13 @@ public class FEditUser extends javax.swing.JFrame {
         jLabel5.setForeground(new java.awt.Color(21, 21, 21));
         jLabel5.setText("Nome Completo:");
 
-        txt_senha3.setBackground(new java.awt.Color(12, 69, 72));
-        txt_senha3.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
-        txt_senha3.setForeground(new java.awt.Color(255, 255, 255));
-        txt_senha3.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
-        txt_senha3.addActionListener(new java.awt.event.ActionListener() {
+        txt_email.setBackground(new java.awt.Color(12, 69, 72));
+        txt_email.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        txt_email.setForeground(new java.awt.Color(255, 255, 255));
+        txt_email.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        txt_email.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txt_senha3ActionPerformed(evt);
+                txt_emailActionPerformed(evt);
             }
         });
 
@@ -122,13 +127,13 @@ public class FEditUser extends javax.swing.JFrame {
         jLabel7.setForeground(new java.awt.Color(21, 21, 21));
         jLabel7.setText("E-mail:");
 
-        txt_senha4.setBackground(new java.awt.Color(12, 69, 72));
-        txt_senha4.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
-        txt_senha4.setForeground(new java.awt.Color(255, 255, 255));
-        txt_senha4.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
-        txt_senha4.addActionListener(new java.awt.event.ActionListener() {
+        txt_telefone.setBackground(new java.awt.Color(12, 69, 72));
+        txt_telefone.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        txt_telefone.setForeground(new java.awt.Color(255, 255, 255));
+        txt_telefone.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        txt_telefone.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txt_senha4ActionPerformed(evt);
+                txt_telefoneActionPerformed(evt);
             }
         });
 
@@ -147,16 +152,16 @@ public class FEditUser extends javax.swing.JFrame {
             .addGroup(ConteudoLayout.createSequentialGroup()
                 .addGap(86, 86, 86)
                 .addGroup(ConteudoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(txt_senha3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 407, Short.MAX_VALUE)
+                    .addComponent(txt_email, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 407, Short.MAX_VALUE)
                     .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel7, javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel8, javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txt_senha4, javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txt_senha1)
+                    .addComponent(txt_telefone, javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(txt_nome)
                     .addComponent(txt_senha, javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txt_email, javax.swing.GroupLayout.Alignment.LEADING))
+                    .addComponent(txt_nomeuser, javax.swing.GroupLayout.Alignment.LEADING))
                 .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(ConteudoLayout.createSequentialGroup()
                 .addContainerGap(181, Short.MAX_VALUE)
@@ -166,7 +171,7 @@ public class FEditUser extends javax.swing.JFrame {
                 .addGap(74, 74, 74))
             .addGroup(ConteudoLayout.createSequentialGroup()
                 .addGap(196, 196, 196)
-                .addComponent(btn_registrar)
+                .addComponent(btn_atualizar)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         ConteudoLayout.setVerticalGroup(
@@ -182,7 +187,7 @@ public class FEditUser extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txt_email, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txt_nomeuser, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel4)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -190,17 +195,17 @@ public class FEditUser extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel5)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txt_senha1, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txt_nome, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel7)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txt_senha3, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txt_email, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel8)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txt_senha4, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txt_telefone, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(26, 26, 26)
-                .addComponent(btn_registrar)
+                .addComponent(btn_atualizar)
                 .addGap(50, 50, 50))
         );
 
@@ -237,9 +242,9 @@ public class FEditUser extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void txt_emailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_emailActionPerformed
+    private void txt_nomeuserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_nomeuserActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txt_emailActionPerformed
+    }//GEN-LAST:event_txt_nomeuserActionPerformed
 
     private void txt_senhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_senhaActionPerformed
         // TODO add your handling code here:
@@ -247,27 +252,33 @@ public class FEditUser extends javax.swing.JFrame {
 
     private void btn_voltarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_voltarMouseClicked
         // TODO add your handling code here:
-        FCreateUser createuser = new FCreateUser();
-        createuser.user = user;
-        createuser.setVisible(true);
+        FListarUsuarios listar = new FListarUsuarios();
+        listar.user = user;
+        listar.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btn_voltarMouseClicked
 
-    private void btn_registrarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_registrarMouseClicked
+    private void btn_atualizarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_atualizarMouseClicked
         // TODO add your handling code here:
-    }//GEN-LAST:event_btn_registrarMouseClicked
+        usu.alterardados(txt_nomeuser.getText(), txt_nome.getText(), txt_telefone.getText(), txt_email.getText(), txt_senha.getText(), id);
+        txt_nomeuser.setText("");
+        txt_nome.setText("");
+        txt_telefone.setText("");
+        txt_email.setText("");
+        txt_senha.setText("");
+    }//GEN-LAST:event_btn_atualizarMouseClicked
 
-    private void txt_senha1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_senha1ActionPerformed
+    private void txt_nomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_nomeActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txt_senha1ActionPerformed
+    }//GEN-LAST:event_txt_nomeActionPerformed
 
-    private void txt_senha3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_senha3ActionPerformed
+    private void txt_emailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_emailActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txt_senha3ActionPerformed
+    }//GEN-LAST:event_txt_emailActionPerformed
 
-    private void txt_senha4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_senha4ActionPerformed
+    private void txt_telefoneActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_telefoneActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txt_senha4ActionPerformed
+    }//GEN-LAST:event_txt_telefoneActionPerformed
 
     /**
      * @param args the command line arguments
@@ -307,7 +318,7 @@ public class FEditUser extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel Conteudo;
     private javax.swing.JPanel Imagem_Fundo;
-    private javax.swing.JLabel btn_registrar;
+    private javax.swing.JLabel btn_atualizar;
     private javax.swing.JLabel btn_voltar;
     private javax.swing.JLabel img_fundo;
     private javax.swing.JLabel jLabel1;
@@ -316,10 +327,10 @@ public class FEditUser extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
-    private javax.swing.JTextField txt_email;
-    private javax.swing.JTextField txt_senha;
-    private javax.swing.JTextField txt_senha1;
-    private javax.swing.JTextField txt_senha3;
-    private javax.swing.JTextField txt_senha4;
+    public javax.swing.JTextField txt_email;
+    public javax.swing.JTextField txt_nome;
+    public javax.swing.JTextField txt_nomeuser;
+    public javax.swing.JTextField txt_senha;
+    public javax.swing.JTextField txt_telefone;
     // End of variables declaration//GEN-END:variables
 }

@@ -121,6 +121,15 @@ public class Usuarios {
 
         return idUsuario; // Retorna o ID do usuário (ou -1 se não houver usuário encontrado)
     }
+    
+    public ResultSet listarusuarios(){
+        ResultSet tabela;
+        tabela = null;
+        
+        String sql = "Select id_dev, nome_usuario, senha, nome_completo, email, telefone from desenvolvedores;";
+        tabela= conexaoDB.RetornarResultset(sql);
+        return tabela;
+    }
 
     public void cadastrar_user(String nome_user, String nome_completo, int telefone, String email, String senha) {
         String sql = "INSERT INTO desenvolvedores (nome_usuario, nome_completo, telefone, email, senha) VALUES (?, ?, ?, ?, ?)";
@@ -153,11 +162,9 @@ public class Usuarios {
         }
     }
 
-    public void alterardados(String nome_user, String nome_completo, int telefone, String email, String senha) {
+    public void alterardados(String nome_user, String nome_completo, String telefone, String email, String senha, int id) {
         try {
-            int id_dev = getId_usuario();
-            // Exibir o ID do usuário antes de executar a atualização
-            JOptionPane.showMessageDialog(null, "ID do usuário antes da alteração: " + id_dev);
+            JOptionPane.showMessageDialog(null, "ID do usuário antes da alteração: " + id);
 
             // Construindo a consulta SQL parametrizada para atualizar os dados do usuário
             String sql = "UPDATE desenvolvedores SET nome_usuario = ?, nome_completo = ?, telefone = ?, email = ?, senha = ? WHERE id_dev = ?";
@@ -168,10 +175,10 @@ public class Usuarios {
                 PreparedStatement preparedStatement = conexaoDB.prepareStatement(sql);
                 preparedStatement.setString(1, nome_user);
                 preparedStatement.setString(2, nome_completo);
-                preparedStatement.setInt(3, telefone);
+                preparedStatement.setString(3, telefone);
                 preparedStatement.setString(4, email);
                 preparedStatement.setString(5, senha);
-                preparedStatement.setInt(6, id_dev); // Usando o id_dev passado como parâmetro
+                preparedStatement.setInt(6, id); // Usando o id_dev passado como parâmetro
 
                 // Executando a atualização
                 int rowsAffected = preparedStatement.executeUpdate();
@@ -191,6 +198,14 @@ public class Usuarios {
             // Certifique-se de desconectar do banco de dados após a execução da consulta
             conexaoDB.desconecta();
         }
+    }
+    
+    
+    public void excluirusuario(int id){
+        String sql;
+        sql= "Delete from desenvolvedores where id_dev="+ id;
+        conexaoDB.executeSQL(sql);
+        JOptionPane.showMessageDialog(null, "Registro excluido com sucesso...");
     }
 
 }

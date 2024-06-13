@@ -40,7 +40,7 @@ public class FCreateUser extends javax.swing.JFrame {
         txt_senha = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         btn_voltar = new javax.swing.JLabel();
-        btn_alterar = new javax.swing.JLabel();
+        btn_listar = new javax.swing.JLabel();
         btn_registrar = new javax.swing.JLabel();
         txt_nome = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
@@ -91,10 +91,10 @@ public class FCreateUser extends javax.swing.JFrame {
             }
         });
 
-        btn_alterar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imgs/cadusu/btn_alterar.png"))); // NOI18N
-        btn_alterar.addMouseListener(new java.awt.event.MouseAdapter() {
+        btn_listar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imgs/btn_listar.png"))); // NOI18N
+        btn_listar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btn_alterarMouseClicked(evt);
+                btn_listarMouseClicked(evt);
             }
         });
 
@@ -169,7 +169,7 @@ public class FCreateUser extends javax.swing.JFrame {
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, ConteudoLayout.createSequentialGroup()
                                 .addComponent(btn_registrar)
                                 .addGap(39, 39, 39)
-                                .addComponent(btn_alterar))
+                                .addComponent(btn_listar))
                             .addComponent(txt_telefone, javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(txt_nome)
                             .addComponent(txt_senha, javax.swing.GroupLayout.Alignment.LEADING)
@@ -214,7 +214,7 @@ public class FCreateUser extends javax.swing.JFrame {
                 .addComponent(txt_telefone, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(27, 27, 27)
                 .addGroup(ConteudoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(btn_alterar)
+                    .addComponent(btn_listar)
                     .addComponent(btn_registrar))
                 .addGap(49, 49, 49))
         );
@@ -268,14 +268,14 @@ public class FCreateUser extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_btn_voltarMouseClicked
 
-    private void btn_alterarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_alterarMouseClicked
+    private void btn_listarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_listarMouseClicked
         // TODO add your handling code here:
-        FEditUser edituser = new FEditUser();
+        FListarUsuarios listar = new FListarUsuarios();
         
-        edituser.user = user;
-        edituser.setVisible(true);
+        listar.user = user;
+        listar.setVisible(true);
         this.dispose();
-    }//GEN-LAST:event_btn_alterarMouseClicked
+    }//GEN-LAST:event_btn_listarMouseClicked
 
     private void btn_registrarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_registrarMouseClicked
         // TODO add your handling code here:
@@ -337,7 +337,7 @@ public class FCreateUser extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel Conteudo;
     private javax.swing.JPanel Imagem_Fundo;
-    private javax.swing.JLabel btn_alterar;
+    private javax.swing.JLabel btn_listar;
     private javax.swing.JLabel btn_registrar;
     private javax.swing.JLabel btn_voltar;
     private javax.swing.JLabel img_fundo;

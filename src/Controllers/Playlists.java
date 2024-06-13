@@ -10,6 +10,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Time;
+import java.sql.Timestamp;
+import java.time.LocalDateTime;
 import java.time.LocalTime;
 import javax.swing.JOptionPane;
 
@@ -23,19 +25,19 @@ public class Playlists {
     
     
     public void cadastrar_playlist(String nome_playlist) {
-        String sql = "INSERT INTO playlists (nome_playlist) VALUES (?)";
-
+        String sql = "INSERT INTO playlists (nome_playlist, criacao_playlist) VALUES (?, ?)";
+        LocalDateTime dataAtual = LocalDateTime.now();
         try {
             // Estabelecendo a conexão com o banco de dados
             if (conexaoDB.conecta()) {
                 // Preparando a consulta SQL
                 PreparedStatement preparedStatement = conexaoDB.prepareStatement(sql);
                 preparedStatement.setString(1, nome_playlist);
-
+                preparedStatement.setTimestamp(2, Timestamp.valueOf(dataAtual));
                 // Executando a consulta SQL para inserir o novo usuário
                 int linhasAfetadas = preparedStatement.executeUpdate();
                 if (linhasAfetadas > 0) {
-                    JOptionPane.showMessageDialog(null, "Playlist cadastrado com sucesso!");
+                    JOptionPane.showMessageDialog(null, "Playlist cadastrada com sucesso!");
                 } else {
                     JOptionPane.showMessageDialog(null, "Falha ao cadastrar Playlist.");
                 }
