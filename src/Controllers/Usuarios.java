@@ -203,7 +203,7 @@ public class Usuarios {
     
     public void excluirusuario(int id){
         String sql;
-        sql= "Delete from desenvolvedores where id_dev="+ id;
+        sql= "Delete from desenvolvedores where id_dev ="+id;
         conexaoDB.executeSQL(sql);
         JOptionPane.showMessageDialog(null, "Registro excluido com sucesso...");
     }

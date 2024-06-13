@@ -83,6 +83,12 @@ public class Playlists {
         }
     }
     
+    public void excluirplaylist(int id){
+        String sql;
+        sql= "Delete from playlists where id_playlist ="+id;
+        conexaoDB.executeSQL(sql);
+        JOptionPane.showMessageDialog(null, "Registro excluido com sucesso...");
+    }
     
     public void inserir_musica(String nome_musica, String artista, LocalTime duracao, int ano, int id_playlist) {
         String sql = "INSERT INTO musicas (nome_musica, artista, duracao, ano, playlist) VALUES (?, ?, ?, ?, ?);";
