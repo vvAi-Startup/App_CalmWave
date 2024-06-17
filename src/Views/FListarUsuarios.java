@@ -48,6 +48,7 @@ public class FListarUsuarios extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         btn_alterar = new javax.swing.JLabel();
         btn_excluir = new javax.swing.JLabel();
+        lbl_tempo = new javax.swing.JLabel();
         btn_sair = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -89,14 +90,14 @@ public class FListarUsuarios extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(tbl_usuarios);
 
-        btn_refresh.setText("Refresh");
+        btn_refresh.setText("Crescente");
         btn_refresh.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_refreshActionPerformed(evt);
             }
         });
 
-        btn_ordenar.setText("Ordenação");
+        btn_ordenar.setText("Decrescente");
         btn_ordenar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_ordenarActionPerformed(evt);
@@ -121,26 +122,30 @@ public class FListarUsuarios extends javax.swing.JFrame {
             }
         });
 
+        lbl_tempo.setForeground(new java.awt.Color(21, 21, 21));
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel1)
-                        .addGap(201, 201, 201)
-                        .addComponent(btn_voltar))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(130, 130, 130)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
                                 .addComponent(btn_ordenar, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(btn_refresh, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 755, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(48, 48, 48)
+                        .addComponent(lbl_tempo)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel1)
+                        .addGap(201, 201, 201)
+                        .addComponent(btn_voltar)))
                 .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
@@ -158,7 +163,9 @@ public class FListarUsuarios extends javax.swing.JFrame {
                         .addComponent(btn_voltar)
                         .addGap(57, 57, 57))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel1)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel1)
+                            .addComponent(lbl_tempo))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btn_refresh, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -257,8 +264,71 @@ public class FListarUsuarios extends javax.swing.JFrame {
 
     private void btn_ordenarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_ordenarActionPerformed
         // TODO add your handling code here:
+        DefaultTableModel modeloTabela = (DefaultTableModel) tbl_usuarios.getModel();
+        int rowCount = modeloTabela.getRowCount();
+        int colCount = modeloTabela.getColumnCount();
+
+        // Extrair os dados da tabela para um array
+        Object[][] data = new Object[rowCount][colCount];
+        for (int i = 0; i < rowCount; i++) {
+            for (int j = 0; j < colCount; j++) {
+                data[i][j] = modeloTabela.getValueAt(i, j);
+            }
+        }
+
+        // Medir o tempo de ordenação com maior precisão
+        long startTime = System.nanoTime();
+        quickSort(data, 0, rowCount - 1);
+        long endTime = System.nanoTime();
+        long duration = endTime - startTime;
+
+        // Atualizar a tabela com os dados ordenados
+        modeloTabela.setRowCount(0); // Limpar a tabela
+        for (Object[] row : data) {
+            modeloTabela.addRow(row);
+        }
+        
+        lbl_tempo.setText("Tempo de ordenação: " + duration / 1000 + " µs");
     }//GEN-LAST:event_btn_ordenarActionPerformed
 
+     private void quickSort(Object[][] data, int low, int high) {
+        if (low < high) {
+            int pi = partition(data, low, high);
+            quickSort(data, low, pi - 1);
+            quickSort(data, pi + 1, high);
+        }
+    }
+
+    private int partition(Object[][] data, int low, int high) {
+        int mid = low + (high - low) / 2;  // Calcula o índice do meio
+        int pivot = Integer.parseInt(data[mid][0].toString());  // Pivô é o elemento do meio
+
+        // Trocar o pivô com o último elemento
+        Object[] temp = data[mid];
+        data[mid] = data[high];
+        data[high] = temp;
+
+        int i = (low - 1);  // Índice do menor elemento
+
+        for (int j = low; j < high; j++) {
+            if (Integer.parseInt(data[j][0].toString()) > pivot) {  // Ordenar em ordem decrescente
+                i++;
+
+                // Trocar data[i] com data[j]
+                temp = data[i];
+                data[i] = data[j];
+                data[j] = temp;
+            }
+        }
+
+        // Trocar data[i + 1] com data[high] (ou seja, o pivô)
+        temp = data[i + 1];
+        data[i + 1] = data[high];
+        data[high] = temp;
+
+        return i + 1;
+    }
+    
     private void btn_alterarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_alterarMouseClicked
         // TODO add your handling code here:
         DefaultTableModel modelo = (DefaultTableModel) tbl_usuarios.getModel();
@@ -373,6 +443,7 @@ public class FListarUsuarios extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel lbl_tempo;
     private javax.swing.JTable tbl_usuarios;
     // End of variables declaration//GEN-END:variables
 }

@@ -67,7 +67,7 @@ public class FMEditarPlaylist extends javax.swing.JFrame {
         btn_sair.setLayout(btn_sairLayout);
         btn_sairLayout.setHorizontalGroup(
             btn_sairLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 49, Short.MAX_VALUE)
+            .addGap(0, 57, Short.MAX_VALUE)
         );
         btn_sairLayout.setVerticalGroup(
             btn_sairLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -166,7 +166,7 @@ public class FMEditarPlaylist extends javax.swing.JFrame {
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                     .addContainerGap(449, Short.MAX_VALUE)
                     .addComponent(btn_sair, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(14, Short.MAX_VALUE)))
+                    .addContainerGap()))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

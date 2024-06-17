@@ -92,11 +92,11 @@ public class FRuidos extends javax.swing.JFrame {
         btn_sair.setLayout(btn_sairLayout);
         btn_sairLayout.setHorizontalGroup(
             btn_sairLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 55, Short.MAX_VALUE)
+            .addGap(0, 51, Short.MAX_VALUE)
         );
         btn_sairLayout.setVerticalGroup(
             btn_sairLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 59, Short.MAX_VALUE)
+            .addGap(0, 55, Short.MAX_VALUE)
         );
 
         Fundo.setBackground(new java.awt.Color(250, 250, 250));
@@ -622,9 +622,9 @@ public class FRuidos extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                    .addContainerGap(967, Short.MAX_VALUE)
+                    .addContainerGap(964, Short.MAX_VALUE)
                     .addComponent(btn_sair, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(394, 394, 394)))
+                    .addGap(401, 401, 401)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -634,9 +634,9 @@ public class FRuidos extends javax.swing.JFrame {
                 .addComponent(Fundo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
-                    .addGap(31, 31, 31)
+                    .addGap(33, 33, 33)
                     .addComponent(btn_sair, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(677, Short.MAX_VALUE)))
+                    .addContainerGap(679, Short.MAX_VALUE)))
         );
 
         setSize(new java.awt.Dimension(1026, 806));

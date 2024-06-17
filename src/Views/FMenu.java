@@ -64,7 +64,7 @@ public class FMenu extends javax.swing.JFrame {
         btn_sair.setLayout(btn_sairLayout);
         btn_sairLayout.setHorizontalGroup(
             btn_sairLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 63, Short.MAX_VALUE)
+            .addGap(0, 47, Short.MAX_VALUE)
         );
         btn_sairLayout.setVerticalGroup(
             btn_sairLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -180,7 +180,7 @@ public class FMenu extends javax.swing.JFrame {
                 .addGroup(layout.createSequentialGroup()
                     .addGap(963, 963, 963)
                     .addComponent(btn_sair, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(93, Short.MAX_VALUE)))
+                    .addContainerGap(109, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

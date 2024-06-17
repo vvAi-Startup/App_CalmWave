@@ -62,6 +62,7 @@ public class FInserirMusic extends javax.swing.JFrame {
         lbl_playlist = new javax.swing.JLabel();
         btn_voltar = new javax.swing.JLabel();
         txt_duracao = new javax.swing.JFormattedTextField();
+        btn_upload = new javax.swing.JToggleButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -79,7 +80,7 @@ public class FInserirMusic extends javax.swing.JFrame {
         btn_sair.setLayout(btn_sairLayout);
         btn_sairLayout.setHorizontalGroup(
             btn_sairLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 45, Short.MAX_VALUE)
+            .addGap(0, 48, Short.MAX_VALUE)
         );
         btn_sairLayout.setVerticalGroup(
             btn_sairLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -172,6 +173,13 @@ public class FInserirMusic extends javax.swing.JFrame {
             ex.printStackTrace();
         }
 
+        btn_upload.setText("UPLOAD");
+        btn_upload.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_uploadActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -202,6 +210,9 @@ public class FInserirMusic extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 211, Short.MAX_VALUE))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addGap(0, 0, Short.MAX_VALUE)
+                                        .addComponent(btn_upload))
                                     .addComponent(txt_ano, javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(txt_artista))
                                 .addGap(50, 50, 50)))
@@ -236,7 +247,9 @@ public class FInserirMusic extends javax.swing.JFrame {
                 .addComponent(jLabel6)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(txt_ano, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 78, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btn_upload)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE)
                 .addComponent(btn_inserirmusica)
                 .addGap(52, 52, 52))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
@@ -264,9 +277,9 @@ public class FInserirMusic extends javax.swing.JFrame {
                     .addComponent(img_fundo, javax.swing.GroupLayout.PREFERRED_SIZE, 1176, javax.swing.GroupLayout.PREFERRED_SIZE)))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                    .addContainerGap(960, Short.MAX_VALUE)
+                    .addContainerGap(965, Short.MAX_VALUE)
                     .addComponent(btn_sair, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(786, Short.MAX_VALUE)))
+                    .addContainerGap(778, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -340,6 +353,11 @@ public class FInserirMusic extends javax.swing.JFrame {
         
     }//GEN-LAST:event_btn_inserirmusicaMouseClicked
 
+    private void btn_uploadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_uploadActionPerformed
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_btn_uploadActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -378,6 +396,7 @@ public class FInserirMusic extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel btn_inserirmusica;
     private javax.swing.JPanel btn_sair;
+    private javax.swing.JToggleButton btn_upload;
     private javax.swing.JLabel btn_visualizar;
     private javax.swing.JLabel btn_voltar;
     private javax.swing.JLabel img_fundo;

@@ -35,9 +35,9 @@
           </Group>
           <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
               <Group type="102" alignment="1" attributes="0">
-                  <EmptySpace pref="960" max="32767" attributes="0"/>
+                  <EmptySpace pref="965" max="32767" attributes="0"/>
                   <Component id="btn_sair" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace pref="786" max="32767" attributes="0"/>
+                  <EmptySpace pref="778" max="32767" attributes="0"/>
               </Group>
           </Group>
       </Group>
@@ -78,7 +78,7 @@
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
-              <EmptySpace min="0" pref="45" max="32767" attributes="0"/>
+              <EmptySpace min="0" pref="48" max="32767" attributes="0"/>
           </Group>
         </DimensionLayout>
         <DimensionLayout dim="1">
@@ -129,6 +129,10 @@
                               </Group>
                               <Group type="102" alignment="1" attributes="0">
                                   <Group type="103" groupAlignment="1" attributes="0">
+                                      <Group type="102" attributes="0">
+                                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                                          <Component id="btn_upload" min="-2" max="-2" attributes="0"/>
+                                      </Group>
                                       <Component id="txt_ano" alignment="0" max="32767" attributes="0"/>
                                       <Component id="txt_artista" max="32767" attributes="0"/>
                                   </Group>
@@ -174,7 +178,9 @@
                   <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="txt_ano" min="-2" pref="44" max="-2" attributes="0"/>
-                  <EmptySpace pref="78" max="32767" attributes="0"/>
+                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                  <Component id="btn_upload" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace pref="34" max="32767" attributes="0"/>
                   <Component id="btn_inserirmusica" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="52" max="-2" attributes="0"/>
               </Group>
@@ -363,6 +369,14 @@
               <Format format="##:##:##" subtype="-1" type="5"/>
             </Property>
           </Properties>
+        </Component>
+        <Component class="javax.swing.JToggleButton" name="btn_upload">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="UPLOAD"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_uploadActionPerformed"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>
